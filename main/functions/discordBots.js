@@ -1,10 +1,12 @@
-const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan } = require('../queries/queries')
+const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan, checkApplications, updateCheck } = require('../queries/queries')
 const { acceptedStaffEmbed, rejectedStaffEmbed, noresStaffEmbed } = require('../embeds/staffEmbeds')
 const { acceptedProfEmbed, rejectedProfEmbed, noresProfEmbed } = require('../embeds/profEmbeds')
 const { acceptedContentEmbed, rejectedContentEmbed, noresContentEmbed } = require('../embeds/contentEmbeds')
 const { acceptedBanEmbed, rejectedBanEmbed, noresBanEmbed } = require('../embeds/banEmbeds')
+const Discord = require('discord.js')
 let staffR;
 const notFound = "No Application was Found"
+const errorMessage = "System Experienced an Error, Please try again."
 
 module.exports.staffFunction = function (userInfo) {
     return checkApplicationStaff(userInfo).then(response => {
@@ -81,5 +83,73 @@ module.exports.banFunction = function (userInfo) {
             banR = notFound;
         }
         return banR;
+    })
+}
+
+module.exports.applicationFunction = function () {
+    return checkApplications().then(response => {
+        let staffopen;
+        let contentopen;
+        let profopen;
+        let banopen;
+        let openEmbed;
+        if(response.data) {
+            if(response.data.staffapp === true){
+                staffopen = "Open"
+            } else {
+                staffopen = "Closed"
+            }
+            if (response.data.contentapp === true) {
+                contentopen = "Open"
+            } else {
+                contentopen = "Closed"
+            }
+            if (response.data.profapp === true) {
+                profopen = "Open"
+            } else {
+                profopen = "Closed"
+            }
+            if (response.data.banappeal === true) {
+                banopen = "Open"
+            } else {
+                banopen = "Closed"
+            }
+
+            openEmbed = new Discord.MessageEmbed()
+                .setColor('#1e24d4')
+                .setTitle('Application Status')
+                .setURL('https://menudocs.org')
+                .setAuthor('MenuDocs Application API')
+                .setDescription('Open and Closed Applications')
+                .addField('Staff Applications', staffopen, true)
+                .addField('Content Creator Applications', contentopen, true)
+                .addField('Proficient Applications', profopen, true)
+                .addField('Ban Appeals', banopen, true)
+                .setFooter('MenuDocs Applications');
+
+        } else {
+            return errorMessage;
+        }
+        console.log(openEmbed)
+        return openEmbed;
+    })
+}
+
+module.exports.updateFunction = function () {
+    return updateCheck().then(response => {
+        let updateEmbed;
+        if(response.data) {
+            if(response.data.update === true) {
+                updateEmbed = new Discord.MessageEmbed()
+                    .setColor('#1e24d4')
+                    .setTitle('Update Live')
+                    .setURL(response.data.updatelink)
+                    .setAuthor('MenuDocs Updates API')
+                    .addField('New Update is Live', 'Check it out above')
+                    .setFooter('MenuDocs Updates');
+            }
+        } else {
+            return errorMessage;
+        }
     })
 }
