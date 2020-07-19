@@ -41,7 +41,6 @@ Functions -
 - botBanStatus
 
 We build the Embeds for you so all you need to do is pass a User ID and then send the function response.
-
 ```js
 const userInfo = message.author.id;
 botProfStatus(userInfo).then(response => message.channel.send(response));
