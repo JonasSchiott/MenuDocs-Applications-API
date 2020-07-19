@@ -121,10 +121,10 @@ module.exports.applicationFunction = function () {
                 .setURL('https://menudocs.org')
                 .setAuthor('MenuDocs Application API')
                 .setDescription('Open and Closed Applications')
-                .addField('Staff Applications', staffopen)
-                .addField('Content Creator Applications', contentopen)
-                .addField('Proficient Applications', profopen)
-                .addField('Ban Appeals', banopen)
+                .addField('Staff Applications', staffopen, true)
+                .addField('Content Creator Applications', contentopen, true)
+                .addField('Proficient Applications', profopen, true)
+                .addField('Ban Appeals', banopen, true)
                 .setFooter('MenuDocs Applications');
 
         } else {
