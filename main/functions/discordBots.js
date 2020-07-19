@@ -3,8 +3,10 @@ const { acceptedStaffEmbed, rejectedStaffEmbed, noresStaffEmbed } = require('../
 const { acceptedProfEmbed, rejectedProfEmbed, noresProfEmbed } = require('../embeds/profEmbeds')
 const { acceptedContentEmbed, rejectedContentEmbed, noresContentEmbed } = require('../embeds/contentEmbeds')
 const { acceptedBanEmbed, rejectedBanEmbed, noresBanEmbed } = require('../embeds/banEmbeds')
+const Discord = require('discord.js')
 let staffR;
 const notFound = "No Application was Found"
+const errorMessage = "System Experienced an Error, Please try again."
 
 module.exports.staffFunction = function (userInfo) {
     return checkApplicationStaff(userInfo).then(response => {
@@ -81,5 +83,54 @@ module.exports.banFunction = function (userInfo) {
             banR = notFound;
         }
         return banR;
+    })
+}
+
+module.exports.applicationFunction = function () {
+    return checkApplications().then(response => {
+        let staffopen;
+        let contentopen;
+        let profopen;
+        let banopen;
+        let openEmbed;
+        if(response.data) {
+            if(response.data.staffapp === true){
+                staffopen = "Open"
+            } else {
+                staffopen = "Closed"
+            }
+            if (response.data.contentapp === true) {
+                contentopen = "Open"
+            } else {
+                contentopen = "Closed"
+            }
+            if (response.data.profapp === true) {
+                profopen = "Open"
+            } else {
+                profopen = "Closed"
+            }
+            if (response.data.banappeal === true) {
+                banopen = "Open"
+            } else {
+                banopen = "Closed"
+            }
+
+            openEmbed = new Discord.MessageEmbed()
+                .setColor('#1e24d4')
+                .setTitle('Application Status')
+                .setURL('https://menudocs.org')
+                .setAuthor('MenuDocs Application API')
+                .setDescription('Open and Closed Applications')
+                .addField('Staff Applications', staffopen)
+                .addField('Content Creator Applications', contentopen)
+                .addField('Proficient Applications', profopen)
+                .addField('Ban Appeals', banopen)
+                .setFooter('MenuDocs Applications');
+
+        } else {
+            return errorMessage;
+        }
+        console.log(openEmbed)
+        return openEmbed;
     })
 }
