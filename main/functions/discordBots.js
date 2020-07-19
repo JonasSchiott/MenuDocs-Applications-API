@@ -1,4 +1,4 @@
-const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan, checkApplications } = require('../queries/queries')
+const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan, checkApplications, updateCheck } = require('../queries/queries')
 const { acceptedStaffEmbed, rejectedStaffEmbed, noresStaffEmbed } = require('../embeds/staffEmbeds')
 const { acceptedProfEmbed, rejectedProfEmbed, noresProfEmbed } = require('../embeds/profEmbeds')
 const { acceptedContentEmbed, rejectedContentEmbed, noresContentEmbed } = require('../embeds/contentEmbeds')
@@ -132,5 +132,24 @@ module.exports.applicationFunction = function () {
         }
         console.log(openEmbed)
         return openEmbed;
+    })
+}
+
+module.exports.updateFunction = function () {
+    return updateCheck().then(response => {
+        let updateEmbed;
+        if(response.data) {
+            if(response.data.update === true) {
+                updateEmbed = new Discord.MessageEmbed()
+                    .setColor('#1e24d4')
+                    .setTitle('Update Live')
+                    .setURL(response.data.updatelink)
+                    .setAuthor('MenuDocs Updates API')
+                    .addField('New Update is Live', 'Check it out above')
+                    .setFooter('MenuDocs Updates');
+            }
+        } else {
+            return errorMessage;
+        }
     })
 }

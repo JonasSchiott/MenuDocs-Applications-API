@@ -19,3 +19,7 @@ module.exports.checkApplicationBan = function (userInfo) {
 module.exports.checkApplications = function () {
     return axios.get(`https://menudocs-admin.herokuapp.com/update`)
 }
+
+module.exports.updateCheck = function () {
+    return axios.get(`https://menudocs-admin.herokuapp.com/update`)
+}
