@@ -1,0 +1,23 @@
+{
+  "name": "@melodicalbuild/menudocs-app-api",
+  "version": "1.2.0",
+  "description": "The MenuDocs Applications Interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelodicAlbuild/MenuDocs-Applications-API.git"
+  },
+  "author": "MelodicAlbuild",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MelodicAlbuild/MenuDocs-Applications-API/issues"
+  },
+  "homepage": "https://github.com/MelodicAlbuild/MenuDocs-Applications-API#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "discord.js": "^12.2.0"
+  }
+}
