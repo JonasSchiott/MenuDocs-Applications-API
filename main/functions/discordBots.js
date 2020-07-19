@@ -1,4 +1,4 @@
-const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan } = require('../queries/queries')
+const { checkApplicationStaff, checkApplicationProf, checkApplicationContent, checkApplicationBan, checkApplications } = require('../queries/queries')
 const { acceptedStaffEmbed, rejectedStaffEmbed, noresStaffEmbed } = require('../embeds/staffEmbeds')
 const { acceptedProfEmbed, rejectedProfEmbed, noresProfEmbed } = require('../embeds/profEmbeds')
 const { acceptedContentEmbed, rejectedContentEmbed, noresContentEmbed } = require('../embeds/contentEmbeds')
