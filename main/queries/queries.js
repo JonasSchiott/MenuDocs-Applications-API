@@ -15,3 +15,7 @@ module.exports.checkApplicationContent = function (userInfo) {
 module.exports.checkApplicationBan = function (userInfo) {
     return axios.get(`https://menudocs-admin.herokuapp.com/ban-appeals?uid=${userInfo}`)
 }
+
+module.exports.checkApplications = function () {
+    return axios.get(`https://menudocs-admin.herokuapp.com/update`)
+}
