@@ -1,11 +1,6 @@
 {
-<<<<<<< Updated upstream
-  "name": "@melodicalbuild/menudocs-app-api",
-  "version": "1.3.0",
-=======
   "name": "@melodicalbuild/bot-app-api",
   "version": "1.3.1",
->>>>>>> Stashed changes
   "description": "The MenuDocs Applications Interface",
   "main": "index.js",
   "scripts": {
