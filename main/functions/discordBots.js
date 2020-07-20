@@ -130,7 +130,6 @@ module.exports.applicationFunction = function () {
         } else {
             return errorMessage;
         }
-        console.log(openEmbed)
         return openEmbed;
     })
 }
@@ -151,5 +150,6 @@ module.exports.updateFunction = function () {
         } else {
             return errorMessage;
         }
+        return updateEmbed
     })
 }
