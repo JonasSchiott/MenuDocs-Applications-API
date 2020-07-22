@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 // Content Embeds
-module.exports.acceptedContentEmbed = new Discord.MessageEmbed()
+module.exports.acceptedContentEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Accepted!`)
     .setURL('https://menudocs.org')
@@ -10,7 +10,7 @@ module.exports.acceptedContentEmbed = new Discord.MessageEmbed()
     .addField(`Congratulations, Your Content Creator Application was Accepted!`, "😁")
     .setFooter(`Hope to see some amazing content!`);
 
-module.exports.rejectedContentEmbed = new Discord.MessageEmbed()
+module.exports.rejectedContentEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Rejected`)
     .setURL('https://menudocs.org')
@@ -19,7 +19,7 @@ module.exports.rejectedContentEmbed = new Discord.MessageEmbed()
     .addField('Sadly your Application was not accepted, Spend some more time around and try again in a few weeks!', "🙁")
     .setFooter(`See you next time!`);
 
-module.exports.noresContentEmbed = new Discord.MessageEmbed()
+module.exports.noresContentEmbed = new MessageEmbed()
     .setColor('#e3cc00')
     .setTitle('No Response')
     .setURL('https://menudocs.org')

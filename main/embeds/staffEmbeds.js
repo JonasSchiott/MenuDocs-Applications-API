@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 // Staff Embeds
-module.exports.acceptedStaffEmbed = new Discord.MessageEmbed()
+module.exports.acceptedStaffEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Accepted!`)
     .setURL('https://menudocs.org')
@@ -10,7 +10,7 @@ module.exports.acceptedStaffEmbed = new Discord.MessageEmbed()
     .addField(`Congratulations, Your Staff Application was Accepted!`, "😁")
     .setFooter(`See you in the Staff Channels!`);
 
-module.exports.rejectedStaffEmbed = new Discord.MessageEmbed()
+module.exports.rejectedStaffEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Rejected`)
     .setURL('https://menudocs.org')
@@ -19,7 +19,7 @@ module.exports.rejectedStaffEmbed = new Discord.MessageEmbed()
     .addField('Sadly your Application was not accepted, Spend some more time around and try again in a few weeks!', "🙁")
     .setFooter(`See you next time!`);
 
-module.exports.noresStaffEmbed = new Discord.MessageEmbed()
+module.exports.noresStaffEmbed = new MessageEmbed()
     .setColor('#e3cc00')
     .setTitle('No Response')
     .setURL('https://menudocs.org')
