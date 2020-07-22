@@ -152,4 +152,3 @@ module.exports.updateFunction = function () {
             return errorMessage;
         }
     })
-}
