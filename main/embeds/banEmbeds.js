@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 // Ban Embeds
-module.exports.acceptedBanEmbed = new Discord.MessageEmbed()
+module.exports.acceptedBanEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Ban Appeal Accepted!`)
     .setURL('https://menudocs.org')
@@ -11,7 +11,7 @@ module.exports.acceptedBanEmbed = new Discord.MessageEmbed()
     .addField(`Come Rejoin!`, `https://menudocs.link/discord`)
     .setFooter(`We can't wait to see you back!`);
 
-module.exports.rejectedBanEmbed = new Discord.MessageEmbed()
+module.exports.rejectedBanEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Ban Appeal Rejected`)
     .setURL('https://menudocs.org')
@@ -20,7 +20,7 @@ module.exports.rejectedBanEmbed = new Discord.MessageEmbed()
     .addField('Sadly your Ban Appeal was not accepted, If you feel wronged, please try again in a few weeks.', "🙁")
     .setFooter(`See you next time!`);
 
-module.exports.noresBanEmbed = new Discord.MessageEmbed()
+module.exports.noresBanEmbed = new MessageEmbed()
     .setColor('#e3cc00')
     .setTitle('No Response')
     .setURL('https://menudocs.org')

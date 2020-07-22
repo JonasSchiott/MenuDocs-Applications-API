@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 // Proficient Embeds
-module.exports.acceptedProfEmbed = new Discord.MessageEmbed()
+module.exports.acceptedProfEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Accepted!`)
     .setURL('https://menudocs.org')
@@ -10,7 +10,7 @@ module.exports.acceptedProfEmbed = new Discord.MessageEmbed()
     .addField(`Congratulations, Your Proficient Application was Accepted!`, "😁")
     .setFooter(`See you in the Proficient Channels!`);
 
-module.exports.rejectedProfEmbed = new Discord.MessageEmbed()
+module.exports.rejectedProfEmbed = new MessageEmbed()
     .setColor('#14d902')
     .setTitle(`Application Rejected`)
     .setURL('https://menudocs.org')
@@ -19,7 +19,7 @@ module.exports.rejectedProfEmbed = new Discord.MessageEmbed()
     .addField('Sadly your Application was not accepted, Spend some more time around and try again in a few weeks!', "🙁")
     .setFooter(`See you next time!`);
 
-module.exports.noresProfEmbed = new Discord.MessageEmbed()
+module.exports.noresProfEmbed = new MessageEmbed()
     .setColor('#e3cc00')
     .setTitle('No Response')
     .setURL('https://menudocs.org')
